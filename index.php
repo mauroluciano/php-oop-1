@@ -1,9 +1,11 @@
 <?php
 
-require_once __DIR__ . 'movie.php';
+require_once __DIR__ . 'Movie.php';
+require __DIR__ . 'Data.php';
 
-$myMovie = new Movie ('nome Film', [1, 2, 3], 90);
+var_dump ($movies);
 
-var_dump ($myMovie);
+
+$myMovie = new Movie ();
 
 ?>
