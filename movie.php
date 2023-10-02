@@ -9,7 +9,7 @@ public $durata;
 
 public function __construct (
     string $titolo,
-    array $genere,
+    string $genere,
     int $durata,
 ){
 $this->titolo = $titolo;
