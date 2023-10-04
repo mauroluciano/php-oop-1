@@ -2,16 +2,22 @@
 
 require_once __DIR__ . '/Movie.php';
 require_once __DIR__ . '/Genere.php';
+require_once __DIR__ . '/TvSerie.php';
 
 require __DIR__ . '/Data.php';
 
 $genere1 = new Genere ('Fantasy');
 $genere2 = new Genere ('Dark');
+$genere3 = new Genere ('sitcom');
+$genere4 = new Genere ('sitcom2');
 
 $myMovie = new Movie ('Signore degli Anelli', $genere1, 90 );
 $myMovie2 = new Movie ('Batman', $genere2, 100);
+$mySerie = new TvSerie ('The Walkin Dead', $genere3, 177);
+$mySerie2 = new TvSerie ('breakin bad', $genere4, 70);
 
 $movies = [$myMovie, $myMovie2];
+$tvSeries = [$mySerie, $mySerie2];
 
 ?>
 
@@ -31,6 +37,19 @@ $movies = [$myMovie, $myMovie2];
   <div class="card-body">
     <h5 class="card-title">Titolo: <?php echo $movie->titolo ?></h5>
     <p class="card-text">Genere: <?php echo $movie->genere->nome ?></p>
+  </div>
+</div>
+
+        <?php endforeach ?>
+</div>
+<div class="container">
+<?php foreach($tvSeries as $serie): ?>
+<div class="card  me-3"  style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Titolo: <?php echo $serie->titolo ?></h5>
+    <p class="card-text">Genere: <?php echo $serie->genere->nome ?></p>
+    <p class="card-text">N° episodi: <?php echo $serie->numEpisodi ?></p>
+
   </div>
 </div>
 
