@@ -1,19 +1,18 @@
 <?php
 
 require_once __DIR__ . '/Movie.php';
-require __DIR__ . '/Data.php';
+require_once __DIR__ . '/Genere.php';
 
+require __DIR__ . '/Data.php';
 
 $genere1 = new Genere ('Fantasy');
 $genere2 = new Genere ('Dark');
 
-
-$myMovie = new Movie ('Signore degli Anelli');
-$myMovie2 = new Movie ('Batman');
-
+$myMovie = new Movie ('Signore degli Anelli', $genere1, 90 );
+$myMovie2 = new Movie ('Batman', $genere2, 100);
 
 $movies = [$myMovie, $myMovie2];
-$generi = [$genere1, $genere2];
+
 ?>
 
 <!DOCTYPE html>
@@ -26,17 +25,16 @@ $generi = [$genere1, $genere2];
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container d-flex justify-content-center m-3">
         <?php foreach($movies as $movie): ?>
-        <div class="row">
-            <?php echo $movie->titolo ?>
-        </div>
+<div class="card  me-3"  style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Titolo: <?php echo $movie->titolo ?></h5>
+    <p class="card-text">Genere: <?php echo $movie->genere->nome ?></p>
+  </div>
+</div>
 
-        <?php foreach($generi as $genere): ?>
-        <div class="row">
-            <?php echo $genere->titolo ?>
-        </div>
-        <?php endforeach; ?>
+        <?php endforeach ?>
 </div>
 </body>
 </html>
